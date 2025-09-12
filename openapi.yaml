@@ -1,0 +1,19 @@
+swagger: '2.0'
+    info:
+      title: 'Secure Chatbot Gateway'
+      version: '1.0.0'
+    schemes:
+      - https
+    produces:
+      - application/json
+    paths:
+      /:
+        post:
+          summary: 'Forward requests to the private EchoBot service'
+          operationId: 'postRequest'
+          x-google-backend:
+            address: [YOUR_PRIVATE_CLOUD_RUN_URL]
+            jwt_audience: [YOUR_PRIVATE_CLOUD_RUN_URL]
+          responses:
+            '200':
+              description: 'Success'
